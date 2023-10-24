@@ -38,4 +38,18 @@ export class EmployeeService {
   getDepartmentById(id: number):Observable<any>{
     return this.httpClient.get<any[]>(`${environment.apiUrl}/${environment.prefix}/employees/${id}`)
   }
+
+  getDepartments(): Observable<any[]>{
+    return this.httpClient.get<any[]>(`${environment.apiUrl}/${environment.prefix}/dali`)
+
+
+  }
+  updateEmployee(id : number,data: any): Observable<any[]> {
+    const {employeeFirstName, employeeLasttName, employeePhone, department } = data;
+    
+    return this.httpClient.put<any[]>(`${environment.apiUrl}/${environment.prefix}/employees/${id}`,{
+    employeeFirstName, "employeeLastName": employeeLasttName,"employeePhoneNumber" :
+    employeePhone, "departmentId": department.id });
+    }
+    
 }
