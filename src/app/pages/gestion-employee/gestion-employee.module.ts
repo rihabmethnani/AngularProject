@@ -4,6 +4,11 @@ import { CommonModule } from '@angular/common';
 import { GestionEmployeeRoutingModule } from './gestion-employee-routing.module';
 import { GestionEmployeeComponent } from './gestion-employee.component';
 import { ListComponent } from './list/list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule , FormsModule} from '@angular/forms';
+import { EmployeeService } from 'src/app/services/employee.service';
+import { DepartmentService } from 'src/app/services/department.service';
+
 
 
 @NgModule({
@@ -13,7 +18,12 @@ import { ListComponent } from './list/list.component';
   ],
   imports: [
     CommonModule,
-    GestionEmployeeRoutingModule
-  ]
+    GestionEmployeeRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+
+  providers:[ EmployeeService, DepartmentService]
 })
 export class GestionEmployeeModule { }
