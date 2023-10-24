@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule , FormsModule} from '@angular/forms';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { DepartmentService } from 'src/app/services/department.service';
+import { AddComponent } from './add/add.component';
 
 
 
 @NgModule({
   declarations: [
     GestionEmployeeComponent,
-    ListComponent
+    ListComponent,
+    AddComponent
   ],
   imports: [
     CommonModule,
@@ -26,4 +28,6 @@ import { DepartmentService } from 'src/app/services/department.service';
 
   providers:[ EmployeeService, DepartmentService]
 })
-export class GestionEmployeeModule { }
+export class GestionEmployeeModule {
+ 
+ }

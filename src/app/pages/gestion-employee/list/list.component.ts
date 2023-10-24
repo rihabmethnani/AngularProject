@@ -20,6 +20,20 @@ export class ListComponent implements OnInit {
       this.getDepartments();
   }
   displayStyle = "none";
+  deleteEmployee(employee: any): void {
+    if (confirm('Are you sure you want to delete this employee?')) {
+    this.empService.deleteEmployee(employee.id).subscribe(
+    () => {
+    console.log('Employee deleted successfully');
+    const index = this.listEmployees.indexOf(employee);
+    if (index !== -1) {
+    this.listEmployees.splice(index, 1);
+    }
+    },
+    (err) => console.log(err)
+    );
+    }
+    }
 getEmployees(): void {
 this.empService.getEmployees().subscribe(
 (data) => {
